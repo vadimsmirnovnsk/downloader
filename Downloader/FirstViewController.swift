@@ -26,7 +26,7 @@ class FirstViewController: UIViewController {
 
 		self.appContainer.console.register(textView: self.consoleView)
 		self.progressView.progress = 0.0
-		self.urlTextField.text = "https://s08.uss.2gis.com/ver4/files/Abakan_ru_RU_map1.17_mobile-2017.12.2017.11.30.0933"
+		self.urlTextField.text = ConstantsService.defaultUrlString
 
 		self.appContainer.router.tabbarVC = self.tabBarController
 		self.appContainer.downloader.progressHandler = { [weak self] progress in
