@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main-->
+        <scene sceneID="hNz-n2-bh7">
+            <objects>
+                <viewController id="9pv-A4-QxB" customClass="FirstViewController" customModule="Downloader" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l2t-CO-xvx">
+                                <rect key="frame" x="16" y="580" width="69" height="30"/>
+                                <state key="normal" title="Download"/>
+                                <connections>
+                                    <action selector="didTapDownloadButton" destination="9pv-A4-QxB" eventType="touchUpInside" id="xN3-AI-Qaj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yqd-tP-EDh">
+                                <rect key="frame" x="171" y="580" width="32" height="30"/>
+                                <state key="normal" title="Stop"/>
+                                <connections>
+                                    <action selector="didTapStopButton" destination="9pv-A4-QxB" eventType="touchUpInside" id="BgK-Ix-b8H"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t8n-hX-iOC">
+                                <rect key="frame" x="323" y="580" width="36" height="30"/>
+                                <state key="normal" title="Send"/>
+                                <connections>
+                                    <action selector="didTapSendButton" destination="9pv-A4-QxB" eventType="touchUpInside" id="oWi-8l-sd1"/>
+                                </connections>
+                            </button>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="O76-ab-O5B">
+                                <rect key="frame" x="16" y="570" width="343" height="2"/>
+                            </progressView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zjY-G4-q00">
+                                <rect key="frame" x="16" y="532" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="URL" returnKeyType="done" textContentType="url"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" indicatorStyle="white" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="z4r-JC-tuY">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="524"/>
+                                <color key="backgroundColor" red="0.12212484137055835" green="0.12212484137055835" blue="0.12212484137055835" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="z4r-JC-tuY" firstAttribute="trailing" secondItem="PQr-Ze-W5v" secondAttribute="trailing" id="65F-cu-KLG"/>
+                            <constraint firstItem="O76-ab-O5B" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="BUG-3m-ouD"/>
+                            <constraint firstItem="zjY-G4-q00" firstAttribute="top" secondItem="z4r-JC-tuY" secondAttribute="bottom" constant="8" id="KMo-vm-Y53"/>
+                            <constraint firstItem="l2t-CO-xvx" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="16" id="QYi-fF-nV4"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="t8n-hX-iOC" secondAttribute="bottom" constant="8" id="TZw-Eq-8u1"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="Yqd-tP-EDh" secondAttribute="bottom" constant="8" id="TqP-zm-ec8"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="t8n-hX-iOC" secondAttribute="trailing" constant="16" id="TuT-z7-PLj"/>
+                            <constraint firstItem="O76-ab-O5B" firstAttribute="top" secondItem="zjY-G4-q00" secondAttribute="bottom" constant="8" id="VFm-4J-eQ6"/>
+                            <constraint firstItem="Yqd-tP-EDh" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="ZL5-8j-Ze8"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="l2t-CO-xvx" secondAttribute="bottom" constant="8" id="ZsD-41-5kT"/>
+                            <constraint firstItem="zjY-G4-q00" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="16" id="a1F-lj-lig"/>
+                            <constraint firstItem="z4r-JC-tuY" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="top" id="l9B-hV-oBx"/>
+                            <constraint firstItem="t8n-hX-iOC" firstAttribute="top" secondItem="O76-ab-O5B" secondAttribute="bottom" constant="8" id="rw2-q2-5gF"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="Yqd-tP-EDh" secondAttribute="bottom" constant="8" id="va4-IJ-vwK"/>
+                            <constraint firstItem="O76-ab-O5B" firstAttribute="trailing" secondItem="tsR-hK-woN" secondAttribute="trailingMargin" id="xcH-6b-fGr"/>
+                            <constraint firstItem="z4r-JC-tuY" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" id="y8J-ad-d96"/>
+                            <constraint firstItem="l2t-CO-xvx" firstAttribute="top" secondItem="O76-ab-O5B" secondAttribute="bottom" constant="8" id="zCp-Sc-NR7"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="zjY-G4-q00" secondAttribute="trailing" constant="16" id="zNa-Sf-nfR"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Main" image="first" id="acW-dT-cKf"/>
+                    <connections>
+                        <outlet property="consoleView" destination="z4r-JC-tuY" id="cFc-kL-FzD"/>
+                        <outlet property="downloadButton" destination="l2t-CO-xvx" id="Ck1-jl-pz3"/>
+                        <outlet property="progressView" destination="O76-ab-O5B" id="tc6-4f-ugI"/>
+                        <outlet property="sendButton" destination="t8n-hX-iOC" id="sw3-fO-VuO"/>
+                        <outlet property="stopButton" destination="Yqd-tP-EDh" id="4fv-nH-Zf4"/>
+                        <outlet property="urlTextField" destination="zjY-G4-q00" id="gIK-v1-atg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="749.60000000000002" y="-320.68965517241384"/>
+        </scene>
+        <!--Additional-->
+        <scene sceneID="wg7-f3-ORb">
+            <objects>
+                <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModule="Downloader" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Серёга, здесь думал разместить дополнительные настройки" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0u7-4W-PBY">
+                                <rect key="frame" x="16" y="313" width="343" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="0u7-4W-PBY" firstAttribute="centerY" secondItem="QS5-Rx-YEW" secondAttribute="centerY" id="LFY-bv-fu2"/>
+                            <constraint firstItem="0u7-4W-PBY" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" constant="16" id="eUM-2b-akT"/>
+                            <constraint firstAttribute="trailing" secondItem="0u7-4W-PBY" secondAttribute="trailing" constant="16" id="kMk-7m-js5"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Additional" image="second" id="cPa-gy-q4n"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="749.60000000000002" y="359.37031484257875"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="yl2-sM-qoP">
+            <objects>
+                <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
+                        <rect key="frame" x="0.0" y="975" width="768" height="49"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
+                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="0.0" y="0.0"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="first" width="30" height="30"/>
+        <image name="second" width="30" height="30"/>
+    </resources>
+</document>
