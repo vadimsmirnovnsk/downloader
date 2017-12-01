@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,36 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l2t-CO-xvx">
-                                <rect key="frame" x="16" y="580" width="69" height="30"/>
-                                <state key="normal" title="Download"/>
-                                <connections>
-                                    <action selector="didTapDownloadButton" destination="9pv-A4-QxB" eventType="touchUpInside" id="xN3-AI-Qaj"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yqd-tP-EDh">
-                                <rect key="frame" x="171" y="580" width="32" height="30"/>
-                                <state key="normal" title="Stop"/>
-                                <connections>
-                                    <action selector="didTapStopButton" destination="9pv-A4-QxB" eventType="touchUpInside" id="BgK-Ix-b8H"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t8n-hX-iOC">
-                                <rect key="frame" x="323" y="580" width="36" height="30"/>
-                                <state key="normal" title="Send"/>
-                                <connections>
-                                    <action selector="didTapSendButton" destination="9pv-A4-QxB" eventType="touchUpInside" id="oWi-8l-sd1"/>
-                                </connections>
-                            </button>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="O76-ab-O5B">
-                                <rect key="frame" x="16" y="570" width="343" height="2"/>
-                            </progressView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zjY-G4-q00">
-                                <rect key="frame" x="16" y="532" width="343" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="URL" returnKeyType="done" textContentType="url"/>
-                            </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" indicatorStyle="white" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="z4r-JC-tuY">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="524"/>
                                 <color key="backgroundColor" red="0.12212484137055835" green="0.12212484137055835" blue="0.12212484137055835" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -57,33 +26,75 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                             </textView>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ccq-ep-9KA">
+                                <rect key="frame" x="0.0" y="523" width="375" height="95"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t8n-hX-iOC">
+                                        <rect key="frame" x="323" y="56" width="36" height="30"/>
+                                        <state key="normal" title="Send"/>
+                                        <connections>
+                                            <action selector="didTapSendButton" destination="9pv-A4-QxB" eventType="touchUpInside" id="oWi-8l-sd1"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yqd-tP-EDh">
+                                        <rect key="frame" x="171" y="57" width="32" height="30"/>
+                                        <state key="normal" title="Stop"/>
+                                        <connections>
+                                            <action selector="didTapStopButton" destination="9pv-A4-QxB" eventType="touchUpInside" id="BgK-Ix-b8H"/>
+                                        </connections>
+                                    </button>
+                                    <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zjY-G4-q00">
+                                        <rect key="frame" x="16" y="8" width="343" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="URL" returnKeyType="done" textContentType="url"/>
+                                    </textField>
+                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" ambiguous="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="O76-ab-O5B">
+                                        <rect key="frame" x="16" y="46" width="343" height="2"/>
+                                    </progressView>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l2t-CO-xvx">
+                                        <rect key="frame" x="16" y="56" width="69" height="30"/>
+                                        <state key="normal" title="Download"/>
+                                        <connections>
+                                            <action selector="didTapDownloadButton" destination="9pv-A4-QxB" eventType="touchUpInside" id="xN3-AI-Qaj"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="t8n-hX-iOC" secondAttribute="bottom" constant="9" id="1Dg-j3-uPB"/>
+                                    <constraint firstItem="zjY-G4-q00" firstAttribute="leading" secondItem="ccq-ep-9KA" secondAttribute="leading" constant="16" id="34P-cC-KL5"/>
+                                    <constraint firstAttribute="trailing" secondItem="t8n-hX-iOC" secondAttribute="trailing" constant="16" id="6jk-4G-UZ2"/>
+                                    <constraint firstAttribute="trailing" secondItem="zjY-G4-q00" secondAttribute="trailing" constant="16" id="7cr-jP-mmR"/>
+                                    <constraint firstItem="zjY-G4-q00" firstAttribute="top" secondItem="ccq-ep-9KA" secondAttribute="top" constant="8" id="9S0-Wl-WkY"/>
+                                    <constraint firstItem="O76-ab-O5B" firstAttribute="leading" secondItem="ccq-ep-9KA" secondAttribute="leading" constant="16" id="BoU-8Z-cYg"/>
+                                    <constraint firstItem="O76-ab-O5B" firstAttribute="top" secondItem="zjY-G4-q00" secondAttribute="bottom" constant="8" id="JOu-QA-6r3"/>
+                                    <constraint firstItem="Yqd-tP-EDh" firstAttribute="centerX" secondItem="ccq-ep-9KA" secondAttribute="centerX" id="MRb-Hb-iiw"/>
+                                    <constraint firstItem="O76-ab-O5B" firstAttribute="leading" secondItem="ccq-ep-9KA" secondAttribute="leading" constant="16" id="b6h-5m-R1G"/>
+                                    <constraint firstAttribute="bottom" secondItem="l2t-CO-xvx" secondAttribute="bottom" constant="9" id="f3i-vv-y9t"/>
+                                    <constraint firstAttribute="bottom" secondItem="Yqd-tP-EDh" secondAttribute="bottom" constant="8" id="jse-aH-Y9m"/>
+                                    <constraint firstItem="l2t-CO-xvx" firstAttribute="leading" secondItem="ccq-ep-9KA" secondAttribute="leading" constant="16" id="nE1-Zu-FSp"/>
+                                    <constraint firstAttribute="height" constant="95" id="red-vw-slR"/>
+                                    <constraint firstItem="t8n-hX-iOC" firstAttribute="top" secondItem="O76-ab-O5B" secondAttribute="bottom" constant="8" id="rjc-L3-yXM"/>
+                                    <constraint firstAttribute="trailing" secondItem="O76-ab-O5B" secondAttribute="trailing" constant="16" id="x1B-tA-LjZ"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="z4r-JC-tuY" firstAttribute="trailing" secondItem="PQr-Ze-W5v" secondAttribute="trailing" id="65F-cu-KLG"/>
-                            <constraint firstItem="O76-ab-O5B" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="BUG-3m-ouD"/>
-                            <constraint firstItem="zjY-G4-q00" firstAttribute="top" secondItem="z4r-JC-tuY" secondAttribute="bottom" constant="8" id="KMo-vm-Y53"/>
-                            <constraint firstItem="l2t-CO-xvx" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="16" id="QYi-fF-nV4"/>
-                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="t8n-hX-iOC" secondAttribute="bottom" constant="8" id="TZw-Eq-8u1"/>
-                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="Yqd-tP-EDh" secondAttribute="bottom" constant="8" id="TqP-zm-ec8"/>
-                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="t8n-hX-iOC" secondAttribute="trailing" constant="16" id="TuT-z7-PLj"/>
-                            <constraint firstItem="O76-ab-O5B" firstAttribute="top" secondItem="zjY-G4-q00" secondAttribute="bottom" constant="8" id="VFm-4J-eQ6"/>
-                            <constraint firstItem="Yqd-tP-EDh" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="ZL5-8j-Ze8"/>
-                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="l2t-CO-xvx" secondAttribute="bottom" constant="8" id="ZsD-41-5kT"/>
-                            <constraint firstItem="zjY-G4-q00" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="16" id="a1F-lj-lig"/>
-                            <constraint firstItem="z4r-JC-tuY" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="top" id="l9B-hV-oBx"/>
-                            <constraint firstItem="t8n-hX-iOC" firstAttribute="top" secondItem="O76-ab-O5B" secondAttribute="bottom" constant="8" id="rw2-q2-5gF"/>
-                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="Yqd-tP-EDh" secondAttribute="bottom" constant="8" id="va4-IJ-vwK"/>
-                            <constraint firstItem="O76-ab-O5B" firstAttribute="trailing" secondItem="tsR-hK-woN" secondAttribute="trailingMargin" id="xcH-6b-fGr"/>
-                            <constraint firstItem="z4r-JC-tuY" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" id="y8J-ad-d96"/>
-                            <constraint firstItem="l2t-CO-xvx" firstAttribute="top" secondItem="O76-ab-O5B" secondAttribute="bottom" constant="8" id="zCp-Sc-NR7"/>
-                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="zjY-G4-q00" secondAttribute="trailing" constant="16" id="zNa-Sf-nfR"/>
+                            <constraint firstItem="ccq-ep-9KA" firstAttribute="trailing" secondItem="PQr-Ze-W5v" secondAttribute="trailing" id="FBm-Fx-cFF"/>
+                            <constraint firstItem="z4r-JC-tuY" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="top" id="JgK-NJ-gkz"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="z4r-JC-tuY" secondAttribute="bottom" constant="94" id="SCR-EL-qYF"/>
+                            <constraint firstItem="ccq-ep-9KA" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" id="SKr-Ku-Qcl"/>
+                            <constraint firstItem="z4r-JC-tuY" firstAttribute="trailing" secondItem="PQr-Ze-W5v" secondAttribute="trailing" id="lvu-6g-9iU"/>
+                            <constraint firstItem="z4r-JC-tuY" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" id="vwf-oC-y0h"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Main" image="first" id="acW-dT-cKf"/>
                     <connections>
                         <outlet property="consoleView" destination="z4r-JC-tuY" id="cFc-kL-FzD"/>
+                        <outlet property="containerView" destination="ccq-ep-9KA" id="iaS-wp-GTL"/>
                         <outlet property="downloadButton" destination="l2t-CO-xvx" id="Ck1-jl-pz3"/>
                         <outlet property="progressView" destination="O76-ab-O5B" id="tc6-4f-ugI"/>
                         <outlet property="sendButton" destination="t8n-hX-iOC" id="sw3-fO-VuO"/>

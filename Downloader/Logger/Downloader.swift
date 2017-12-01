@@ -67,6 +67,11 @@ class Downloader: NSObject {
 		self.expectedContentLength = 0
 		self.isDownloading = false
 		self.isSuspend = false
+
+		DispatchQueue.main.async { [weak self] in
+			self?.completionHandler?(false)
+			self?.progressHandler?(0.0)
+		}
 	}
 
 	func pause() {

@@ -8,9 +8,11 @@ class FirstViewController: UIViewController {
 	@IBOutlet var sendButton: UIButton!
 	@IBOutlet var urlTextField: UITextField!
 	@IBOutlet var progressView: UIProgressView!
+	@IBOutlet var containerView: UIView!
 
 	private let recognizer = UISwipeGestureRecognizer()
 	private let appContainer = AppContainer.shared
+	private var anchor: NSLayoutConstraint?
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -20,6 +22,7 @@ class FirstViewController: UIViewController {
 		self.consoleView.addGestureRecognizer(self.recognizer)
 
 		self.urlTextField.delegate = self
+		self.consoleView.delegate = self
 
 		self.appContainer.console.register(textView: self.consoleView)
 		self.progressView.progress = 0.0
@@ -35,6 +38,12 @@ class FirstViewController: UIViewController {
 				self?.downloadButton.setTitle("Download", for: .normal)
 			}
 		}
+
+		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+
+		self.anchor = self.containerView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor)
+		self.anchor?.isActive = true
 	}
 
 	override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -79,6 +88,16 @@ class FirstViewController: UIViewController {
 		self.urlTextField.resignFirstResponder()
 	}
 
+	@objc func keyboardWillShow(notification: NSNotification) {
+		if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+			self.anchor?.constant = -keyboardSize.height + 44.0
+		}
+	}
+
+	@objc func keyboardWillHide(notification: NSNotification) {
+		self.anchor?.constant = 0
+	}
+
 }
 
 extension FirstViewController: UITextFieldDelegate {
@@ -91,3 +110,10 @@ extension FirstViewController: UITextFieldDelegate {
 
 }
 
+extension FirstViewController: UITextViewDelegate {
+
+	func scrollViewDidScroll(_ scrollView: UIScrollView) {
+		self.urlTextField.resignFirstResponder()
+	}
+
+}
