@@ -14,7 +14,7 @@ class Downloader: NSObject {
 	public private(set) var isSuspend = false
 
 	private let operationQueue = OperationQueue()
-	private var currentDataTask: URLSessionDataTask?
+	private var currentDataTask: URLSessionDownloadTask?
 	private var expectedContentLength: Int64 = 0
 
 	public var progressHandler: ((Double) -> Void)?
@@ -46,7 +46,7 @@ class Downloader: NSObject {
 	}
 
 	func download(url: URL) {
-		let task = self.backgroundSessionRestricted.dataTask(with: url)
+		let task = self.backgroundSessionRestricted.downloadTask(with: url)
 		self.currentDataTask = task
 		self.isDownloading = true
 		self.isSuspend = false
@@ -96,6 +96,19 @@ extension Downloader: URLSessionDelegate, URLSessionDownloadDelegate, URLSession
 
 	public func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
 		log.info("✅ urlSession didFinishDownloading to location: \(location)")
+
+		do {
+			let documentsURL = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+			let savedURL = documentsURL.appendingPathComponent(location.lastPathComponent)
+			try FileManager.default.moveItem(at: location, to: savedURL)
+			log.info("💾 Moved file to: \(savedURL.absoluteString)")
+			if let data = try? Data(contentsOf: savedURL) {
+				log.info("Data size: \(data.count)")
+			}
+
+		} catch {
+			log.info ("⛔️ File error: \(error)")
+		}
 	}
 
 	public func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {

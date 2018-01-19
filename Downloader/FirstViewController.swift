@@ -42,8 +42,14 @@ class FirstViewController: UIViewController {
 		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
 		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
 
-		self.anchor = self.containerView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor)
-		self.anchor?.isActive = true
+		if #available(iOS 11, *) {
+			self.anchor = self.containerView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor)
+			self.anchor?.isActive = true
+		} else {
+			self.anchor = self.containerView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+			self.anchor?.isActive = true
+		}
+
 	}
 
 	override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -66,20 +72,22 @@ class FirstViewController: UIViewController {
 	@IBAction func didTapDownloadButton() {
 		log.info("Did tap download button")
 
-		if self.appContainer.downloader.isDownloading {
-			if self.appContainer.downloader.isSuspend {
-				self.appContainer.downloader.resume()
-				self.downloadButton.setTitle("Pause", for: .normal)
+		DispatchQueue.main.async {
+			if self.appContainer.downloader.isDownloading {
+				if self.appContainer.downloader.isSuspend {
+					self.appContainer.downloader.resume()
+					self.downloadButton.setTitle("Pause", for: .normal)
+				} else {
+					self.appContainer.downloader.pause()
+					self.downloadButton.setTitle("Resume", for: .normal)
+				}
 			} else {
-				self.appContainer.downloader.pause()
-				self.downloadButton.setTitle("Resume", for: .normal)
-			}
-		} else {
-			if let string = self.urlTextField.text, let url = URL(string: string) {
-				self.appContainer.downloader.download(url: url)
-				self.downloadButton.setTitle("Pause", for: .normal)
-			} else {
-				self.appContainer.router.showErrorAlert(with: "Плохой УРЛ", message: "Непохоже, что можно создать урл из введённой строки 🤨")
+				if let string = self.urlTextField.text, let url = URL(string: string) {
+					self.appContainer.downloader.download(url: url)
+					self.downloadButton.setTitle("Pause", for: .normal)
+				} else {
+					self.appContainer.router.showErrorAlert(with: "Плохой УРЛ", message: "Непохоже, что можно создать урл из введённой строки 🤨")
+				}
 			}
 		}
 	}

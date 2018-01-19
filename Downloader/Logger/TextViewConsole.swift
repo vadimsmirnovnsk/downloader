@@ -9,11 +9,9 @@ class TextViewConsole {
 	}
 
 	func log(_ text: String) {
-		self.text.append(text + "\n")
-		let text = self.text
-		DispatchQueue.main.async { [weak self] in
-			self?.textView?.text = text
-		}
+//		DispatchQueue.main.async { [weak self] in
+//			self?.textView?.text.append(text + "\n")
+//		}
 	}
 
 }
